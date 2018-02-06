@@ -25,8 +25,8 @@ class MyForm extends React.Component {
 
   render() {
     return (
-      <div className="MyForm">
-        <div className="Form">
+      <div styleName="MyForm">
+        <div styleName="Form">
           <form className="form-group" onSubmit={this.handleSubmit}>
             <Input name="name" value={this.state.name} placeholder="Nom" onChange={this.handleChange} />
             <Input name="firstName" value={this.state.firstName} placeholder="Prénom" onChange={this.handleChange} />

@@ -8,11 +8,10 @@ const WebpackNotifierPlugin = require('webpack-notifier')
 
 module.exports = {
   context,
-  devtool: 'source-map',
   entry: './index.js',
   output: {
-    path: path.join(context, 'static'),
-    filename: '[name].js',
+    path: path.join(__dirname, 'static'),
+    filename: 'index.js',
     publicPath: '/',
   },
   module: {
@@ -21,7 +20,7 @@ module.exports = {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: 'css-loader?importLoader=1&modules&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
+          use: ['css-loader?importLoaders=1', 'postcss-loader'],
         }),
       },
       {
@@ -30,7 +29,7 @@ module.exports = {
           fallback: 'style-loader',
           use: [
             'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
-            //'postcss-loader',
+            'postcss-loader',
             'resolve-url-loader',
             'sass-loader?sourceMap&sourceMapContents',
           ],
@@ -45,6 +44,10 @@ module.exports = {
             [
               'react-css-modules',
               {
+                generateScopedName: '[path]___[name]__[local]___[hash:base64:5]',
+                filetypes: {
+                  '.scss': 'postcss-scss',
+                },
                 context,
               },
             ],
@@ -58,7 +61,8 @@ module.exports = {
   plugins: [
     new WebpackNotifierPlugin({ alwaysNotify: true }),
     new ExtractTextPlugin({
-      filename: '[name].css',
+      filename: 'index.css',
+      allChunks: true,
     }),
   ],
 }
