@@ -5,6 +5,7 @@ const path = require('path')
 const context = path.resolve(__dirname, 'src')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const WebpackNotifierPlugin = require('webpack-notifier')
+const HTMLWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   context,
@@ -64,5 +65,9 @@ module.exports = {
       filename: 'index.css',
       allChunks: true,
     }),
+    new HTMLWebpackPlugin({
+      template: __dirname + '/public/index.html',
+      filename: 'index.html'
+    })
   ],
 }

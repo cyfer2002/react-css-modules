@@ -27,7 +27,7 @@ class MyForm extends React.Component {
     return (
       <div styleName="MyForm">
         <div styleName="Form">
-          <form className="form-group" onSubmit={this.handleSubmit}>
+          <form className='form-group' onSubmit={this.handleSubmit}>
             <input className='form-control' name="name" value={this.state.name} placeholder="Nom" onChange={this.handleChange} />
             <input className='form-control' name="firstName" value={this.state.firstName} placeholder="Prénom" onChange={this.handleChange} />
             <button className='btn btn-primary' color="secondary" type="submit">
