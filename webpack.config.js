@@ -3,7 +3,6 @@
 const webpack = require('webpack')
 const path = require('path')
 const context = path.resolve(__dirname, 'src')
-var dirname = path.join(__dirname, '../', '../')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const WebpackNotifierPlugin = require('webpack-notifier')
 
