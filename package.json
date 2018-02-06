@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "start": "webpack --config webpack.config.js"
+    "start": "webpack-dev-server"
   },
   "dependencies": {
     "babel-plugin-react-css-modules": "^2.1.3",
