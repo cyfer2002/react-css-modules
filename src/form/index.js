@@ -1,5 +1,5 @@
 import React from 'react'
-import { forms, buttons, inputGroup } from 'bootstrap-css'
+import { Form, Button, inputGroup, Input } from 'reactstrap'
 import './index.scss'
 
 class MyForm extends React.Component {
@@ -27,13 +27,13 @@ class MyForm extends React.Component {
     return (
       <div styleName="MyForm">
         <div styleName="Form">
-          <form className='form-group' onSubmit={this.handleSubmit}>
-            <input className='form-control' name="name" value={this.state.name} placeholder="Nom" onChange={this.handleChange} />
-            <input className='form-control' name="firstName" value={this.state.firstName} placeholder="Prénom" onChange={this.handleChange} />
-            <button className='btn btn-primary' color="secondary" type="submit">
+          <Form onSubmit={this.handleSubmit}>
+            <Input name="name" value={this.state.name} placeholder="Nom" onChange={this.handleChange} />
+            <Input name="firstName" value={this.state.firstName} placeholder="Prénom" onChange={this.handleChange} />
+            <Button className="btn btn-primary" color="secondary" type="submit">
               Valider
-            </button>
-          </form>
+            </Button>
+          </Form>
         </div>
       </div>
     )

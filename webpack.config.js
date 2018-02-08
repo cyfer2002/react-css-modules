@@ -9,7 +9,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   context,
-  entry: './index.js',
+  entry: ['bootstrap-loader/lib/bootstrap.loader!bootstrap-loader/no-op.js', './index.js'],
   output: {
     path: path.join(__dirname, 'static'),
     filename: 'index.js',
@@ -17,6 +17,11 @@ module.exports = {
   },
   module: {
     loaders: [
+      // Fonts
+      { test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/, use: 'url-loader?limit=10000&mimetype=application/font-woff' },
+      { test: /\.[ot]tf(\?v=\d+\.\d+\.\d+)?$/, use: 'url-loader?limit=10000&mimetype=application/octet-stream' },
+      { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, use: 'file-loader' },
+      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, use: 'url-loader?limit=10000&mimetype=image/svg+xml' },
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
@@ -64,10 +69,11 @@ module.exports = {
     new ExtractTextPlugin({
       filename: 'index.css',
       allChunks: true,
+      ignoreOrder: true,
     }),
     new HTMLWebpackPlugin({
       template: __dirname + '/public/index.html',
-      filename: 'index.html'
-    })
+      filename: 'index.html',
+    }),
   ],
 }
