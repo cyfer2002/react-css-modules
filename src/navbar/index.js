@@ -13,6 +13,8 @@ import {
   DropdownItem,
 } from 'reactstrap'
 
+import './index.scss'
+
 class NavBar extends React.Component {
   constructor(props) {
     super(props)
@@ -31,13 +33,13 @@ class NavBar extends React.Component {
   render() {
     return (
       <div>
-        <Navbar className="navbar-expand-sm" color="faded" light>
+        <Navbar expand="md" className="bg-primary" light>
           <NavbarBrand href="/">MyNavBar</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="#">Path N°1</NavLink>
+                <NavLink href="#">route N°1</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="https://www.google.fr">Google</NavLink>
