@@ -1,16 +1,24 @@
 import React from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+
 import MyNavBar from '../navbar'
-import './index.scss'
+import Main from '../main'
+import Header from './Header'
+import Footer from './Footer'
+import Test from '../test'
 
 class Layout extends React.Component {
   render() {
     return (
-      <div>
-        <header styleName="MyHeader">
-          <h1 className="My-title">{this.props.title}</h1>
-        </header>
-        <MyNavBar />
-      </div>
+      <Router>
+        <div>
+          <Header title={this.props.title} />
+          <MyNavBar />
+          <Route exact path="/" component={Main} />
+          <Route path="/test" component={Test} />
+          <Footer />
+        </div>
+      </Router>
     )
   }
 }

@@ -1,17 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Router, Route } from 'react-router-bootstrap'
-import Main from './main'
-import Layout from './layout'
-import Test from './test'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import './index.scss'
 
-ReactDOM.render(
-  <Router>
-    <Route path="/" component={props => <Layout {...props} title="MyForm" />}>
-      <IndexRoute component={Main} />
-      <Route path="/test" component={Test} />
-    </Route>
-  </Router>,
-  document.getElementById('root')
-)
+import Layout from './layout'
+
+import Main from './main'
+
+ReactDOM.render(<Layout title="MyForm" />, document.getElementById('root'))

@@ -42,11 +42,12 @@ module.exports = {
         }),
       },
       {
-        include: path.resolve(__dirname, './src'),
+        test: /\.(es6|js|jsx)$/,
+        exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
+          presets: ['react', ['es2015', { modules: false }]],
           plugins: [
-            'transform-react-jsx',
             [
               'react-css-modules',
               {
@@ -58,7 +59,6 @@ module.exports = {
             ],
           ],
         },
-        test: /\.js$/,
       },
     ],
   },
@@ -75,6 +75,14 @@ module.exports = {
       filename: 'index.html',
     }),
   ],
+  resolve: {
+    // tell webpack which extensions to auto search when it resolves modules. With this,
+    // you'll be able to do `require('./utils')` instead of `require('./utils.js')`
+    extensions: ['.js', '.es6', '.css', '.png', '.gif'],
+    // by default, webpack will search in `web_modules` and `node_modules`. Because we're using
+    // Bower, we want it to look in there too
+    modules: ['node_modules'],
+  },
   devServer: {
     historyApiFallback: true,
   },

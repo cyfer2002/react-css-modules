@@ -4,7 +4,12 @@ import MyForm from '../form/index'
 
 class Main extends React.Component {
   render() {
-    return <MyForm />
+    return (
+      <div>
+        <MyForm />
+        {this.props.children}
+      </div>
+    )
   }
 }
 
