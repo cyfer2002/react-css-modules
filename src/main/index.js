@@ -7,6 +7,7 @@ class Main extends React.Component {
     return (
       <div>
         <MyForm />
+
         {this.props.children}
       </div>
     )

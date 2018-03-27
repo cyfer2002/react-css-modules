@@ -46,7 +46,7 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          presets: ['react', ['es2015', { modules: false }]],
+          presets: ['react', 'es2015', 'stage-2'],
           plugins: [
             [
               'react-css-modules',
@@ -78,7 +78,7 @@ module.exports = {
   resolve: {
     // tell webpack which extensions to auto search when it resolves modules. With this,
     // you'll be able to do `require('./utils')` instead of `require('./utils.js')`
-    extensions: ['.js', '.es6', '.css', '.png', '.gif'],
+    extensions: ['.js', '.jsx', '.es6', '.css', '.png', '.gif'],
     // by default, webpack will search in `web_modules` and `node_modules`. Because we're using
     // Bower, we want it to look in there too
     modules: ['node_modules'],

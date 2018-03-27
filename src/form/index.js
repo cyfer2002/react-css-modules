@@ -1,6 +1,7 @@
 import React from 'react'
 import { Form, Button, inputGroup, Input } from 'reactstrap'
 import './index.scss'
+import Todo from '../components/App'
 
 class MyForm extends React.Component {
   constructor(props) {
@@ -34,6 +35,7 @@ class MyForm extends React.Component {
               Valider
             </Button>
           </Form>
+          <Todo />
         </div>
       </div>
     )
