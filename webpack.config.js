@@ -16,7 +16,7 @@ module.exports = {
     publicPath: '/',
   },
   module: {
-    loaders: [
+    rules: [
       // Fonts
       { test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/, use: 'url-loader?limit=10000&mimetype=application/font-woff' },
       { test: /\.[ot]tf(\?v=\d+\.\d+\.\d+)?$/, use: 'url-loader?limit=10000&mimetype=application/octet-stream' },
@@ -42,11 +42,15 @@ module.exports = {
         }),
       },
       {
+        test: /\.ts|\.tsx$/,
+        loader: ['babel-loader', 'ts-loader'],
+      },
+      {
         test: /\.(es6|js|jsx)$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          presets: ['react', 'es2015', 'stage-2'],
+          presets: ['react', 'es2016', 'stage-2'],
           plugins: [
             [
               'react-css-modules',
@@ -78,7 +82,7 @@ module.exports = {
   resolve: {
     // tell webpack which extensions to auto search when it resolves modules. With this,
     // you'll be able to do `require('./utils')` instead of `require('./utils.js')`
-    extensions: ['.js', '.jsx', '.es6', '.css', '.png', '.gif'],
+    extensions: ['.js', '.jsx', '.es6', '.css', '.png', '.gif', '.ts', '.tsx'],
     // by default, webpack will search in `web_modules` and `node_modules`. Because we're using
     // Bower, we want it to look in there too
     modules: ['node_modules'],

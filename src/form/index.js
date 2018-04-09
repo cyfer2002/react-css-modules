@@ -1,6 +1,7 @@
 import React from 'react'
 import { Form, Button, inputGroup, Input } from 'reactstrap'
 import './index.scss'
+import TodoList from '../component/TodoList'
 
 class MyForm extends React.Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class MyForm extends React.Component {
             <Button className="btn btn-primary" color="secondary" type="submit">
               Valider
             </Button>
+            <TodoList />
           </Form>
         </div>
       </div>
